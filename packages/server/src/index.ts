@@ -212,6 +212,36 @@ export class App {
                     }
                 ])
                 .toArray()
+            if (workflows.length) return res.json(workflows)
+            return res.status(404).send(`Workflows ${req.params.userId} not found`)
+        })
+
+         // Get all workflows from userId
+        this.app.get('/api/v1/workflows/:userId', async (req: Request, res: Response) => {
+            const workflows: IWorkflowResponse[] = await this.AppDataSource.getMongoRepository(Workflow)
+                .aggregate([
+                    {
+                        $match: {
+                            userId: req.params.useId
+                        }
+                    },
+                    {
+                        $lookup: {
+                            from: 'execution',
+                            localField: 'shortId',
+                            foreignField: 'workflowShortId',
+                            as: 'execution'
+                        }
+                    },
+                    {
+                        $addFields: {
+                            executionCount: {
+                                $size: '$execution'
+                            }
+                        }
+                    }
+                ])
+                .toArray()
             if (workflows.length) return res.json(workflows[0])
             return res.status(404).send(`Workflow ${req.params.shortId} not found`)
         })
