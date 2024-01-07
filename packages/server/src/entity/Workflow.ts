@@ -18,8 +18,8 @@ export class Workflow implements IWorkflow {
         this.shortId = shortId('W', new Date())
     }
 
-    @Column()
-    userId: string
+    @ObjectIdColumn()
+    userId: ObjectId
 
     @Column()
     name: string
