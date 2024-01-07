@@ -8,6 +8,9 @@ export class Wallet implements IWallet {
     @ObjectIdColumn()
     _id: ObjectId
 
+    @ObjectIdColumn()
+    userId: ObjectId
+
     @Column()
     name: string
 
