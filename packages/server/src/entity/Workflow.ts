@@ -19,6 +19,9 @@ export class Workflow implements IWorkflow {
     }
 
     @Column()
+    userId: string
+
+    @Column()
     name: string
 
     @Column()
