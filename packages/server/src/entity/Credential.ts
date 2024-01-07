@@ -8,6 +8,9 @@ export class Credential implements ICredential {
     @ObjectIdColumn()
     _id: ObjectId
 
+    @ObjectIdColumn()
+    userId: ObjectId
+
     @Column()
     name: string
 
