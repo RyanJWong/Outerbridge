@@ -15,6 +15,7 @@ import EventEmitter from 'events'
 export interface IWorkflow {
     _id: ObjectId
     shortId: string
+    userId: ObjectId
     name: string
     flowData: string
     deployed: boolean
@@ -25,6 +26,7 @@ export interface IWorkflow {
 export interface IExecution {
     _id: ObjectId
     shortId: string
+    userId: ObjectId
     workflowShortId: string
     executionData: string
     state: ExecutionState
@@ -35,6 +37,7 @@ export interface IExecution {
 export interface ICredential {
     _id: ObjectId
     name: string
+    userId: ObjectId
     nodeCredentialName: string
     credentialData: string
     updatedDate: Date
@@ -43,6 +46,7 @@ export interface ICredential {
 
 export interface IWebhook {
     _id: ObjectId
+    userId: ObjectId
     workflowShortId: string
     webhookEndpoint: string
     httpMethod: WebhookMethod
@@ -54,6 +58,7 @@ export interface IWebhook {
 
 export interface IContract {
     _id: ObjectId
+    userId: ObjectId
     name: string
     abi: string
     address: string
@@ -65,6 +70,7 @@ export interface IContract {
 
 export interface IWallet {
     _id: ObjectId
+    userId: ObjectId
     name: string
     address: string
     network: string
