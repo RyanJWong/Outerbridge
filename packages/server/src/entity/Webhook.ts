@@ -8,6 +8,9 @@ export class Webhook implements IWebhook {
     @ObjectIdColumn()
     _id: ObjectId
 
+    @ObjectIdColumn()
+    userId: ObjectId
+
     @Column()
     nodeId: string
 
