@@ -8,6 +8,9 @@ export class Contract implements IContract {
     @ObjectIdColumn()
     _id: ObjectId
 
+    @ObjectIdColumn()
+    userId: ObjectId
+
     @Column()
     name: string
 
