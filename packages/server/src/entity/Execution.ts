@@ -8,6 +8,9 @@ import { IExecution, ExecutionState } from '../Interface'
 export class Execution implements IExecution {
     @ObjectIdColumn()
     _id: ObjectId
+    
+    @ObjectIdColumn()
+    userId: ObjectId
 
     @Index()
     @Column()
